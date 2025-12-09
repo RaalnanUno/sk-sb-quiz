@@ -1,893 +1,112 @@
 [
   {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "When describing API experience in an interview, focus on specific projects, your role, the tech stack, and measurable outcomes.",
-    "question": "How should you describe your experience building APIs in a senior-level interview?",
-    "correctAnswer": "Use concrete projects, your responsibilities, tech stack, and measurable outcomes.",
+    "domain": "Svelte: Lifecycle",
+    "lesson": "onMount runs only in the browser after the component is first rendered, and is the right place for client-only code like fetch or localStorage.",
+    "question": "What is the primary purpose of Svelte's onMount lifecycle function?",
+    "correctAnswer": "Run client-side code after the component first renders.",
     "dummyAnswers": [
-      "Keep it high-level and buzzword-heavy so it can apply to any role.",
-      "List every framework you’ve ever touched without tying them to specific outcomes.",
-      "Focus only on what the team did and avoid clarifying your individual responsibilities."
+      "To run code before TypeScript compiles the component",
+      "To control how often the component re-renders on state changes",
+      "To statically analyze the component during Svelte's build step"
     ]
   },
   {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "IDisposable is used to deterministically release unmanaged resources such as file handles and database connections.",
-    "question": "What is IDisposable in .NET and why is it used?",
-    "correctAnswer": "It exposes Dispose so you can deterministically release unmanaged resources.",
+    "domain": "Svelte: Reactivity Basics",
+    "lesson": "In Svelte, reassigning a variable triggers reactive updates; you don’t call setState like in React.",
+    "question": "How do you typically trigger a reactive update in Svelte?",
+    "correctAnswer": "Reassign a local variable so Svelte detects the change.",
     "dummyAnswers": [
-      "It tells the garbage collector to immediately collect all managed objects of that type.",
-      "It marks classes that should be created only once per application lifetime.",
-      "It is mainly used to improve performance by avoiding heap allocations for value types."
+      "By calling setState() with the new value",
+      "By calling forceUpdate() after modifying the value",
+      "By wrapping the value in a useEffect callback"
     ]
   },
   {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "The === operator compares both value and type without coercion, while == performs type coercion first.",
-    "question": "In simple terms, what is the difference between == and === in JavaScript?",
-    "correctAnswer": "== coerces types before comparing; === compares value and type without coercion.",
+    "domain": "Svelte: Reactive Statements",
+    "lesson": "Reactive declarations using the $: syntax recompute whenever their dependencies change.",
+    "question": "What does a Svelte reactive statement using the '$:' syntax do?",
+    "correctAnswer": "Recomputes its expression when its referenced values change.",
     "dummyAnswers": [
-      "=== compares by reference while == compares by value for all types.",
-      "=== is just syntactic sugar; modern engines treat == and === the same way.",
-      "== is only for primitive values, whereas === is only for objects and arrays."
+      "It runs only once, when the component first mounts",
+      "It registers a watcher that must be manually cleaned up",
+      "It defines a global variable that can be shared across components"
     ]
   },
   {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "useMemo memoizes the result of an expensive calculation and only recomputes when its dependencies change.",
-    "question": "What problem does useMemo solve in React?",
-    "correctAnswer": "It avoids recomputing expensive values on every render by memoizing them.",
+    "domain": "Svelte: Conditional Rendering",
+    "lesson": "{#if}{:else if}{:else}{/if} blocks control which parts of the template are rendered based on state.",
+    "question": "What is the purpose of the {#if}{:else}{/if} block in Svelte templates?",
+    "correctAnswer": "Conditionally render markup based on a boolean expression.",
     "dummyAnswers": [
-      "It prevents a component from ever re-rendering once it has mounted.",
-      "It memoizes entire components so they are never unmounted from the DOM.",
-      "It synchronizes state across unrelated components without using context or Redux."
+      "To define a new component that can be reused elsewhere",
+      "To delay rendering until all promises have resolved",
+      "To memoize a section of the template for performance"
     ]
   },
   {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "The decimal type is preferred for financial calculations because it provides high precision with base-10 representation.",
-    "question": "What is the best .NET type to represent financial balances?",
-    "correctAnswer": "Use the decimal type for precise base-10 financial calculations.",
+    "domain": "Svelte: Each Blocks",
+    "lesson": "{#each} blocks let you loop over arrays and render list items directly in the template.",
+    "question": "How do you render a list of items from an array in Svelte?",
+    "correctAnswer": "Use a {#each array as item}{/each} block in the markup.",
     "dummyAnswers": [
-      "Use double because it is faster and precise enough for all monetary calculations.",
-      "Use float so that large currency values can be represented in scientific notation.",
-      "Use long and store all amounts in cents to avoid any rounding issues."
+      "By calling array.map() directly inside a <script> block",
+      "By wrapping the array in a special List component",
+      "By using a v-for directive on each list element"
     ]
   },
   {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "When describing API experience in an interview, focus on specific projects, your role (design, implementation, testing, deployment), the tech stack (e.g., ASP.NET Core, NestJS, Node, SQL/NoSQL), and measurable outcomes like performance, reliability, or business impact.",
-    "question": "How should you describe your experience building APIs in a senior-level interview?",
-    "correctAnswer": "Use concrete projects, your responsibilities, tech stack, and measurable outcomes (performance, reliability, business impact).",
+    "domain": "Svelte: Event Handling",
+    "lesson": "Svelte attaches DOM event listeners using the on:eventName directive, such as on:click.",
+    "question": "How do you attach a click handler to a button in Svelte?",
+    "correctAnswer": "Use on:click={yourHandler} on the button.",
     "dummyAnswers": [
-      "Describe your preferred coding style and editor settings without mentioning projects.",
-      "Focus mostly on team size and organizational structure rather than technical details.",
-      "Explain the theory of REST and HTTP but avoid talking about real production systems."
+      "Use @click=\"yourHandler\" on the button element",
+      "Call addEventListener inside onMount for each button",
+      "Use onclick={yourHandler} in the <script> block"
     ]
   },
   {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Common API versioning strategies include versioning in the URL (/v1, /v2), in headers, or in query parameters, combined with clear deprecation policies, documentation, and routing that allows multiple versions to run side by side in production.",
-    "question": "How do you typically handle API versioning in a production environment?",
-    "correctAnswer": "Expose versions (URL or headers) and run multiple versions side by side with clear deprecation policies.",
+    "domain": "Svelte: Two-Way Binding",
+    "lesson": "bind:value enables two-way data binding between form controls and component state.",
+    "question": "What does bind:value={foo} do on an <input> element in Svelte?",
+    "correctAnswer": "Keeps the input value and foo variable in sync.",
     "dummyAnswers": [
-      "Avoid explicit versioning and just change the existing endpoints as requirements evolve.",
-      "Use semantic versioning in the database schema name but keep all APIs under a single URL.",
-      "Create a new domain name for every breaking change instead of supporting multiple versions."
+      "It only sets the input’s initial value from foo but does not update it",
+      "It only updates foo when the component first mounts",
+      "It disables manual updates to the input’s value"
     ]
   },
   {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Backward compatibility means new API versions don’t break existing clients. You achieve this by avoiding breaking changes, using additive changes (new fields/endpoints), supporting multiple versions at once, and using feature flags or contracts to manage change over time.",
-    "question": "How do you handle backward compatibility when evolving an API?",
-    "correctAnswer": "Avoid breaking changes, add behavior instead of changing it, and support multiple versions in parallel.",
+    "domain": "Svelte: Stores vs Local State",
+    "lesson": "Local variables in a Svelte component are component-scoped, while stores are shared reactive values that can be used across components.",
+    "question": "How does using a Svelte store differ from using a local let variable in a component?",
+    "correctAnswer": "Provides shared reactive values used across multiple components.",
     "dummyAnswers": [
-      "Deploy breaking changes immediately and instruct all clients to update within 24 hours.",
-      "Rely on client-side fallbacks instead of maintaining old API behavior on the server.",
-      "Use database triggers to transparently rewrite old requests to the new API format."
+      "Stores are compiled away, while local variables remain at runtime",
+      "Stores can only be used in onMount, not in normal component code",
+      "Stores are required for all state in Svelte components"
     ]
   },
   {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "In a NestJS + TypeORM stack, Nest provides modular structure, controllers, and dependency injection for your HTTP API, while TypeORM handles persistence, migrations, and entities. Together they support clean layering, repository patterns, and easier maintenance of versioned and backward-compatible APIs.",
-    "question": "How do NestJS and TypeORM fit into your approach to building maintainable APIs?",
-    "correctAnswer": "NestJS structures controllers and DI, TypeORM handles entities and persistence, together enforcing clean layering.",
+    "domain": "Svelte: Asynchronous Data",
+    "lesson": "Fetching data inside onMount ensures the code runs only in the browser, avoiding errors during server-side rendering.",
+    "question": "Why is it common to perform fetch requests inside onMount in a Svelte component?",
+    "correctAnswer": "Because onMount runs only in the browser, not during SSR.",
     "dummyAnswers": [
-      "NestJS focuses solely on database queries, while TypeORM is mainly for routing and middleware.",
-      "NestJS is only used as a lightweight HTTP server when TypeORM is not involved at all.",
-      "TypeORM automatically generates all controllers so NestJS is only used for configuration."
+      "Because Svelte cannot import async functions in the <script> block",
+      "Because fetch can only be called from lifecycle hooks",
+      "Because Svelte automatically retries fetch calls only when used in onMount"
     ]
   },
   {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Handling concurrency in REST APIs involves using optimistic or pessimistic locking, idempotent endpoints, proper transaction boundaries, and sometimes queues or background workers so that shared resources aren’t corrupted under high load.",
-    "question": "How do you handle concurrency issues in a REST API?",
-    "correctAnswer": "Use locking (often optimistic), transactions, idempotent endpoints, and queues to protect shared resources.",
-    "dummyAnswers": [
-      "Avoid concurrency by processing all requests sequentially in a single-threaded queue.",
-      "Increase server hardware resources so that race conditions are less likely to occur.",
-      "Rely solely on database auto-increment keys to prevent concurrent update problems."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Node’s event loop is a single-threaded loop that processes a queue of callbacks. CPU-bound work blocks the loop, while I/O is handed off to the OS or libuv thread pool and resumes via callbacks/promises when complete.",
-    "question": "How does the event loop work in Node.js at a high level?",
-    "correctAnswer": "A single-threaded loop processes callbacks while I/O runs asynchronously via the OS or thread pool.",
-    "dummyAnswers": [
-      "Each incoming request gets its own dedicated thread managed directly by the event loop.",
-      "The event loop is a background GC process that periodically frees unused memory.",
-      "Node creates a new process for every async operation, and the event loop just tracks them."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "To troubleshoot a slow SQL query, examine the execution plan, check indexes and statistics, filter early, avoid unnecessary scans or sorts, and measure improvements iteratively after adding or tuning indexes or rewriting the query.",
-    "question": "How do you troubleshoot a slow SQL query in production?",
-    "correctAnswer": "Review the execution plan, fix indexing and joins, reduce scans/sorts, and measure performance after each change.",
-    "dummyAnswers": [
-      "Increase the database server’s CPU and memory until the query runs acceptably fast.",
-      "Disable all constraints and foreign keys to reduce overhead for slow queries.",
-      "Wrap the query in a stored procedure so the database engine can automatically optimize it."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Dynatrace is an APM tool that provides end-to-end tracing, metrics, logs, and real-user monitoring, letting you see service dependencies, response times, hotspots, and errors across distributed systems.",
-    "question": "What does Dynatrace provide in the context of monitoring an application?",
-    "correctAnswer": "End-to-end APM: tracing, metrics, logs, and real-user monitoring across services.",
-    "dummyAnswers": [
-      "A source-control system for tracking changes to your application’s codebase.",
-      "A configuration management tool for deploying applications to multiple environments.",
-      "A static code analysis tool for enforcing style rules and detecting compile-time issues."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "To secure an API endpoint, you typically combine authentication (JWT, OAuth2, API keys), authorization (role/claim checks), input validation, rate limiting, HTTPS, and sometimes mTLS or WAF rules.",
-    "question": "How do you secure an API endpoint in production?",
-    "correctAnswer": "Use authentication, authorization, input validation, HTTPS, and rate limiting around the endpoint.",
-    "dummyAnswers": [
-      "Expose the endpoint only on non-standard ports so attackers can’t easily find it.",
-      "Rely on frontend validation and obfuscated JavaScript to prevent malicious input.",
-      "Handle security primarily with database permissions and avoid checks at the API layer."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Zero-downtime deployment usually relies on blue-green or rolling deployments, health checks, backward-compatible schema changes, and graceful shutdown so that old and new versions can run briefly in parallel.",
-    "question": "How do you design for zero-downtime deployments?",
-    "correctAnswer": "Use blue-green or rolling deploys, health checks, backward-compatible changes, and graceful shutdown.",
-    "dummyAnswers": [
-      "Run all deployments late at night and accept brief downtime as long as it’s off-peak.",
-      "Stop all incoming traffic during deployment and restart services as quickly as possible.",
-      "Deploy directly to production servers and roll back manually if users report issues."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "SQL injection is prevented by never concatenating user input into SQL and instead using parameterized queries, ORMs, stored procedures, and input validation.",
-    "question": "How do you prevent SQL injection attacks?",
-    "correctAnswer": "Use parameterized queries or ORM bindings instead of string-concatenated SQL.",
-    "dummyAnswers": [
-      "Escape single quotes manually in all user input before concatenating SQL strings.",
-      "Hide the database server behind a firewall so injection payloads can’t reach it.",
-      "Disable all SELECT statements from user-facing endpoints to limit attack surface."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "When an ASP.NET Core request hits the server, it passes through Kestrel, then middleware in the pipeline (auth, routing, etc.), then the matched endpoint (controller or minimal API), and finally the response flows back through the pipeline.",
-    "question": "What happens internally when an ASP.NET Core request hits the server?",
-    "correctAnswer": "Kestrel receives it, runs it through middleware, executes the endpoint, then returns the response through the pipeline.",
-    "dummyAnswers": [
-      "IIS processes the request entirely and then notifies Kestrel only when an error occurs.",
-      "The request goes directly to the controller, and middleware runs only after the response.",
-      "Kestrel forwards the request to a Windows service, which then calls controllers directly."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "Custom logging means defining structured log messages, correlation IDs, and log scopes around key operations, and sending them to sinks like files, Elastic, or Application Insights for querying and alerting.",
-    "question": "How do you handle custom logging in a complex application?",
-    "correctAnswer": "Use structured logs with correlation IDs and scopes, and ship them to centralized sinks for querying and alerts.",
-    "dummyAnswers": [
-      "Write all logs to the local file system and manually copy them off the server when needed.",
-      "Log only errors and avoid including identifiers or context to keep log size small.",
-      "Use random textual log messages without a fixed structure to simplify logging code."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "When describing a challenging application, focus on complexity (scale, performance, legacy integration), your role, key technical or organizational challenges, and what you did to solve them and improve the system.",
-    "question": "How should you describe a challenging application you’ve worked on in an interview?",
-    "correctAnswer": "Explain the context, the main challenges, your technical contributions, and the measurable outcomes.",
-    "dummyAnswers": [
-      "Focus on how stressful the project was without going into technical detail.",
-      "Describe only the technologies used and skip the problems you had to solve.",
-      "Talk mainly about interpersonal conflicts and keep the technical part very generic."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "IDisposable is an interface that defines a Dispose method, used to release unmanaged resources like file handles, database connections, or OS handles deterministically instead of waiting for the garbage collector.",
-    "question": "What is IDisposable in .NET and why is it used?",
-    "correctAnswer": "It exposes Dispose so you can deterministically release unmanaged resources like DB connections or file handles.",
-    "dummyAnswers": [
-      "It forces the garbage collector to run immediately for all instances of that type.",
-      "It is used only for classes that allocate large managed arrays on the heap.",
-      "It tells the runtime that the object should live for the entire application lifetime."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "IEnumerable is for in-memory, forward-only iteration, while IQueryable builds an expression tree that can be translated and executed by a remote provider (like a database) for deferred, optimized queries.",
-    "question": "What is the main difference between IEnumerable and IQueryable?",
-    "correctAnswer": "IEnumerable runs in-memory iteration; IQueryable builds expression trees executed by a remote provider like a DB.",
-    "dummyAnswers": [
-      "IQueryable is only used for collections stored on disk, while IEnumerable is for in-memory data.",
-      "IEnumerable always executes queries lazily, while IQueryable always executes them eagerly.",
-      "IQueryable is just a marker interface with no behavioral differences from IEnumerable."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "For financial balances in .NET, you should use the decimal type because it provides high precision with base-10 representation, avoiding rounding errors common with floating-point types.",
-    "question": "What is the best .NET type to represent financial balances?",
-    "correctAnswer": "Use the decimal type for precise base-10 financial calculations.",
-    "dummyAnswers": [
-      "Use double for currency because it is the default floating-point type in .NET.",
-      "Use float for balances under one million and double for anything larger.",
-      "Use int for all amounts and assume that cents are always .00 to simplify calculations."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Boxing is converting a value type to an object (or interface) by allocating it on the heap, while unboxing extracts the value type back from the object reference, incurring allocation and casting cost.",
-    "question": "What are boxing and unboxing in .NET?",
-    "correctAnswer": "Boxing wraps a value type in an object; unboxing extracts the value type from that object.",
-    "dummyAnswers": [
-      "Boxing means encrypting data before sending it over the network; unboxing is decrypting it.",
-      "Boxing is converting a reference type to a value type; unboxing is the inverse.",
-      "Boxing is the process of compiling code; unboxing happens when code is JIT-compiled."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Managed code runs under the CLR with services like GC and type safety; unmanaged code runs directly on the OS without CLR services and requires manual memory management.",
-    "question": "What is the difference between managed and unmanaged code in .NET?",
-    "correctAnswer": "Managed code runs under the CLR with GC; unmanaged code runs directly on the OS without CLR services.",
-    "dummyAnswers": [
-      "Managed code is compiled ahead-of-time, while unmanaged code is always interpreted.",
-      "Unmanaged code can only be written in C#, while managed code can be written in any language.",
-      "Managed code cannot call native libraries, while unmanaged code can call into the CLR."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Dependency injection in .NET Core means registering services in the DI container and letting the framework supply dependencies to constructors, improving testability, flexibility, and separation of concerns.",
-    "question": "Why would you use dependency injection in a .NET Core application?",
-    "correctAnswer": "It lets the framework supply dependencies, improving testability, flexibility, and separation of concerns.",
-    "dummyAnswers": [
-      "To ensure all dependencies are stored in static variables for faster access.",
-      "To avoid having to define interfaces for services in the application.",
-      "To reduce the number of classes by combining multiple responsibilities into one."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "An interface defines a contract of members without implementation; an abstract class can provide both abstract and concrete members and supports shared base behavior plus state.",
-    "question": "What is the main difference between an interface and an abstract class in .NET?",
-    "correctAnswer": "Interfaces define contracts only; abstract classes can define contracts plus shared implementation and state.",
-    "dummyAnswers": [
-      "Interfaces support fields, while abstract classes cannot contain any fields.",
-      "Abstract classes cannot be inherited, while interfaces can be inherited freely.",
-      "Interfaces are compiled to native code, while abstract classes are interpreted at runtime."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Common patterns to mention include Repository, Factory, Strategy, Singleton, and Mediator. Focus on the problem each solves and how it improves testability, decoupling, or readability.",
-    "question": "How might you briefly explain three design patterns in an interview?",
-    "correctAnswer": "Pick patterns like Repository, Factory, and Strategy and describe the problem each solves and how it decouples code.",
-    "dummyAnswers": [
-      "List as many pattern names as possible without describing their use cases.",
-      "Explain that most patterns are outdated and you prefer not to use them.",
-      "Say that patterns mainly exist to make code more complex and harder to change."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "The Mediator pattern centralizes communication between objects so they don’t reference each other directly, reducing coupling and making behavior easier to coordinate and change.",
-    "question": "What is the Mediator pattern and why is it useful?",
-    "correctAnswer": "It centralizes communication between components so they don’t talk directly, reducing coupling.",
-    "dummyAnswers": [
-      "It is a pattern that forces all services to share a single global configuration object.",
-      "It describes how to create many object instances using a common factory method.",
-      "It ensures a single instance of a class exists across the application’s lifetime."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "CORS is a browser security mechanism that controls which origins can make cross-origin requests to your API. You configure allowed origins, methods, headers, and credentials on the server.",
-    "question": "What is CORS and why is it important for APIs?",
-    "correctAnswer": "A browser policy that restricts cross-origin requests; you configure allowed origins and methods on the server.",
-    "dummyAnswers": [
-      "A load-balancing technique that distributes requests across multiple API servers.",
-      "A protocol for encrypting HTTP traffic between the client and server.",
-      "A database feature that allows cross-database joins for reporting queries."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "SOLID is a set of five design principles—Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion—that help you write maintainable, flexible, and testable code.",
-    "question": "What are SOLID principles meant to achieve in software design?",
-    "correctAnswer": "They guide you to write maintainable, flexible, testable code by enforcing good object-oriented design.",
-    "dummyAnswers": [
-      "They optimize code for maximum performance at the cost of readability.",
-      "They define a strict folder structure for organizing class files in a project.",
-      "They enforce naming conventions so code looks consistent across the team."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Separation of concerns means breaking a system into distinct parts, each handling one area of responsibility (e.g., UI, business logic, data access), to reduce coupling and make changes safer.",
-    "question": "What is separation of concerns?",
-    "correctAnswer": "Splitting a system into parts where each handles one responsibility to reduce coupling.",
-    "dummyAnswers": [
-      "Separating senior developers from junior developers so they work on different modules.",
-      "Using different programming languages for the frontend and backend layers.",
-      "Deploying each service to a different cloud provider to reduce operational risk."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Microservices split functionality into small, independently deployable services around business capabilities, while SOA is a broader concept of services communicating over a network, often with more centralized governance.",
-    "question": "How do Microservices differ from traditional Service-Oriented Architecture (SOA)?",
-    "correctAnswer": "Microservices are smaller, independently deployable, and focused on business capabilities; SOA is broader and more centralized.",
-    "dummyAnswers": [
-      "SOA always uses HTTP, whereas microservices must use message queues.",
-      "Microservices cannot share databases, while SOA requires a single shared database.",
-      "SOA is only used on-premises, whereas microservices can only run in the cloud."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "Race conditions occur when multiple operations access shared state concurrently and the result depends on timing. You handle them by using locks, atomic operations, transactions, or designing idempotent operations.",
-    "question": "How should you handle race conditions in a multi-threaded or distributed system?",
-    "correctAnswer": "Protect shared state with locks, atomic operations, or transactions and design idempotent operations.",
-    "dummyAnswers": [
-      "Ignore them in development and rely on production monitoring to detect issues.",
-      "Use longer timeouts so threads have more time to finish their work.",
-      "Log all concurrent operations and replay them in the correct order later."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "A deadlock happens when two or more threads each hold a resource and wait forever for the other to release its resource. It’s prevented by consistent lock ordering, timeouts, and minimizing lock scope.",
-    "question": "What is a deadlock condition?",
-    "correctAnswer": "When threads hold resources and wait on each other in a cycle so none can proceed.",
-    "dummyAnswers": [
-      "When a single thread runs in an infinite loop without yielding control.",
-      "When the garbage collector stops all threads to perform a collection.",
-      "When a database connection pool runs out of available connections temporarily."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": ".NET’s garbage collector periodically finds objects that are no longer reachable and frees their memory, using generations and compacting the heap to reduce fragmentation and improve performance.",
-    "question": "How does the .NET garbage collector work at a high level?",
-    "correctAnswer": "It finds unreachable objects, frees their memory, and compacts the heap, using generational collections.",
-    "dummyAnswers": [
-      "It deletes any objects that haven’t been used within a fixed time window.",
-      "It requires developers to manually mark objects that should be collected.",
-      "It only runs when the application shuts down to avoid impacting performance."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": ".NET manages memory on the managed heap for reference types and the stack for value types, with the GC reclaiming unused managed memory, while unmanaged resources must be released explicitly (e.g., via IDisposable).",
-    "question": "How does .NET handle memory management overall?",
-    "correctAnswer": "It uses a managed heap with GC for objects and requires explicit cleanup for unmanaged resources.",
-    "dummyAnswers": [
-      "All memory must be allocated and freed manually using pointers and offsets.",
-      "The runtime automatically converts unmanaged resources into managed ones at compile time.",
-      "Memory is allocated only on the stack unless explicitly promoted to the heap by the developer."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "To detect and fix memory leaks in a high-throughput JS app, you monitor heap usage, use browser dev tools for heap snapshots and allocation timelines, ensure event listeners and timers are cleaned up, and avoid retaining unnecessary references in long-lived objects.",
-    "question": "How would you detect and resolve memory leaks in a high-throughput JavaScript application?",
-    "correctAnswer": "Monitor heap growth, use dev tools to find retained objects, and clean up listeners, timers, and long-lived references.",
-    "dummyAnswers": [
-      "Restart the application periodically so any leaked memory is reclaimed by the OS.",
-      "Disable the garbage collector in production to avoid pauses caused by memory management.",
-      "Rely on minification and bundling to reduce the chance of memory leaks appearing."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "JavaScript itself is single-threaded at the language level, but the environment (browser/Node) can use multiple threads for I/O and background work via the event loop and task queues.",
-    "question": "Is JavaScript single-threaded or multi-threaded?",
-    "correctAnswer": "The JS runtime is single-threaded, but the environment uses multiple threads for async work via the event loop.",
-    "dummyAnswers": [
-      "It is fully multi-threaded, and each function call automatically runs on a separate thread.",
-      "It is always single-threaded, and no environment is allowed to use additional threads.",
-      "It switches between single-threaded and multi-threaded modes based on a compiler flag."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "The event loop repeatedly picks tasks from the queue and executes them on the single JS thread, interleaving callbacks from timers, promises, and I/O so that asynchronous operations can complete without blocking.",
-    "question": "How does the JavaScript event loop work at a high level?",
-    "correctAnswer": "It pulls tasks from queues and runs them on a single thread, scheduling async callbacks as operations complete.",
-    "dummyAnswers": [
-      "It starts a new thread for each pending callback in the queue.",
-      "It runs only once at page load, then stops and waits for user input.",
-      "It is responsible solely for garbage collection and does not execute code."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "The == operator does type coercion before comparison, while === compares both value and type without coercion, making === safer and more predictable.",
-    "question": "In simple terms, what is the difference between == and === in JavaScript?",
-    "correctAnswer": "== coerces types before comparing; === compares value and type without coercion.",
-    "dummyAnswers": [
-      "=== compares by reference for objects, while == compares by value for primitives only.",
-      "== is deprecated and should never be used in modern JavaScript engines.",
-      "=== compares only primitive values, while == compares only objects."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "Hoisting means variable and function declarations are moved to the top of their scope at compile time, so functions can be called before they appear and var declarations exist but are undefined until assignment.",
-    "question": "What is hoisting in JavaScript?",
-    "correctAnswer": "Declarations are conceptually moved to the top of their scope so they exist before their written position.",
-    "dummyAnswers": [
-      "A process where JavaScript automatically optimizes all loops at runtime.",
-      "A feature that moves function calls to the bottom of the file after compilation.",
-      "A mechanism that converts all let and const declarations into var declarations."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "In TypeScript, a union type (A | B) means a value can be one of several types, while an intersection type (A & B) means a value must satisfy all of the combined types at once.",
-    "question": "What is the difference between a union type and an intersection type in TypeScript?",
-    "correctAnswer": "Union means either one type or another; intersection means the value must satisfy all combined types.",
-    "dummyAnswers": [
-      "Union types exist only at runtime, while intersection types exist only at compile time.",
-      "Union types are for objects and intersection types are for primitive values.",
-      "Union types are less safe than using any, while intersection types disable type checking."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "Arrow functions are a shorter function syntax that do not have their own this, arguments, or prototype; instead, they capture this from their surrounding lexical scope.",
-    "question": "How would you explain arrow functions in JavaScript in simple terms?",
-    "correctAnswer": "They are concise functions that capture this from their surrounding scope instead of defining their own.",
-    "dummyAnswers": [
-      "They are slower than regular functions and should only be used for debugging.",
-      "They always bind this to the global object regardless of where they are defined.",
-      "They can only be used inside classes and not in standalone modules."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "Regular functions get their own this based on how they’re called (e.g., as a method, via call/apply), while arrow functions capture this lexically from where they are defined and cannot be used as constructors.",
-    "question": "What is the key difference between arrow functions and regular functions?",
-    "correctAnswer": "Regular functions have their own dynamic this; arrow functions capture this from the surrounding scope.",
-    "dummyAnswers": [
-      "Arrow functions are compiled, while regular functions are interpreted at runtime.",
-      "Regular functions cannot access closures, while arrow functions can.",
-      "Arrow functions run on a different thread, while regular functions don’t."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "The Virtual DOM is an in-memory representation of the real DOM used to compute an efficient set of changes before updating the actual DOM, reducing direct DOM manipulation cost.",
-    "question": "What is the Virtual DOM in the context of regular JavaScript frameworks?",
-    "correctAnswer": "An in-memory tree that lets the framework diff changes and update the real DOM efficiently.",
-    "dummyAnswers": [
-      "A separate browser window used for rendering hidden debug information.",
-      "A browser extension that intercepts and modifies DOM updates.",
-      "A low-level browser API that replaces the standard DOM implementation."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "In React, the Virtual DOM is React’s internal tree of elements; when state changes, React computes a diff between the previous and new trees and applies only the minimal necessary changes to the real DOM.",
-    "question": "How would you explain the Virtual DOM in React?",
-    "correctAnswer": "React keeps a virtual tree and diffs new and old trees to apply minimal updates to the real DOM.",
-    "dummyAnswers": [
-      "React bypasses the DOM entirely and writes HTML directly to disk.",
-      "React replicates the entire DOM on every render and replaces it wholesale.",
-      "React uses the Virtual DOM only during development; production uses direct DOM updates."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "Reconciliation is the process where React compares the current Virtual DOM tree with the new one after an update and decides which DOM nodes to create, update, or remove.",
-    "question": "What is reconciliation in React?",
-    "correctAnswer": "React’s process of diffing old and new trees to decide which DOM updates to perform.",
-    "dummyAnswers": [
-      "The process by which React merges multiple Redux stores into one.",
-      "The step where React compiles JSX into JavaScript before runtime.",
-      "The background task that clears unused components from memory on an interval."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "To implement reconciliation in React, you rely on stable keys for lists, avoid unnecessary re-renders, and structure components so React can efficiently compare and reuse elements during the diff.",
-    "question": "How can you help React’s reconciliation process in your components?",
-    "correctAnswer": "Provide stable keys and structure components to minimize unnecessary changes between renders.",
-    "dummyAnswers": [
-      "Re-create new random keys on each render to force React to rebuild the DOM.",
-      "Store all component state in global variables instead of React state.",
-      "Avoid using keys in lists so React can infer the correct mapping automatically."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "Prop drilling happens when you pass props through multiple intermediate components just so a deeply nested component can use them, often leading to unnecessary coupling and verbosity.",
-    "question": "What is prop drilling in React?",
-    "correctAnswer": "Passing props through many layers solely so deeply nested components can access them.",
-    "dummyAnswers": [
-      "Using props to drill into the browser’s native debugging tools.",
-      "Passing props only into top-level components while ignoring children.",
-      "Storing props directly in the DOM nodes rather than in React state."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "useMemo memoizes the result of an expensive calculation and recomputes it only when its dependencies change, preventing unnecessary work on every render.",
-    "question": "What problem does useMemo solve in React?",
-    "correctAnswer": "It avoids recomputing expensive values on every render by memoizing them based on dependencies.",
-    "dummyAnswers": [
-      "It prevents React from ever unmounting a component tree once it is rendered.",
-      "It automatically synchronizes state across multiple React applications.",
-      "It replaces Redux by storing all global application state in memoized values."
-    ]
-  },
-  {
-    "domain": "Interview: JavaScript & React",
-    "lesson": "Redux Saga is a middleware that uses generator functions (sagas) to manage complex asynchronous side effects, such as API calls, in a more declarative and testable way.",
-    "question": "What is Redux Saga and why would you use it?",
-    "correctAnswer": "A Redux middleware that uses sagas to orchestrate async side effects in a declarative, testable way.",
-    "dummyAnswers": [
-      "A library that replaces Redux and manages only synchronous state updates.",
-      "A UI library for creating animated components on top of React.",
-      "A tool that compiles Redux reducers into WebAssembly for performance."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Optimistic locking assumes collisions are rare and checks a version or timestamp before committing, rejecting the update if the record has changed.",
-    "question": "What is optimistic locking in a REST API using a database?",
-    "correctAnswer": "It lets multiple users read data freely and checks a version on update to detect and reject conflicting changes.",
-    "dummyAnswers": [
-      "It blocks all reads while a write is in progress to ensure no stale data is viewed.",
-      "It forces all updates to succeed by retrying automatically regardless of conflicts.",
-      "It allows only one user to access a resource at a time to avoid potential conflicts."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Pessimistic locking prevents conflicts by locking the resource for the first writer, making other operations wait.",
-    "question": "What is pessimistic locking?",
-    "correctAnswer": "Locking a resource when a write starts so other operations must wait before accessing it.",
-    "dummyAnswers": [
-      "Delaying writes until all readers have disconnected to avoid interruptions.",
-      "Only checking for conflicts after a transaction fails in production.",
-      "Allowing unlimited parallel writes and correcting conflicts at query time."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "ETags allow clients to include their last-known representation version in an update so the server can detect stale updates.",
-    "question": "How do ETags help with concurrency control in REST APIs?",
-    "correctAnswer": "They let the client send a version with the update so the server can reject stale writes.",
-    "dummyAnswers": [
-      "They encrypt payloads to ensure only the intended user can modify the resource.",
-      "They indicate how long the resource should be cached before allowing updates.",
-      "They allow the server to roll back transactions automatically if performance drops."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Idempotent endpoints produce the same result even when called repeatedly, preventing duplicated effects from retries.",
-    "question": "What does it mean for an API endpoint to be idempotent?",
-    "correctAnswer": "Calling it multiple times results in the same effect as calling it once.",
-    "dummyAnswers": [
-      "It always executes within a single database transaction without retries.",
-      "It guarantees that responses are cached permanently for repeated use.",
-      "It prevents clients from sending the same request more than once."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "A race condition happens when multiple operations modify shared state and the final outcome depends on timing.",
-    "question": "What is a race condition in a distributed system?",
-    "correctAnswer": "A timing-dependent issue where concurrent operations produce inconsistent results when accessing shared state.",
-    "dummyAnswers": [
-      "A performance issue where requests pile up faster than servers can respond.",
-      "A situation where all traffic is routed to a single instance during deployment.",
-      "A failure caused by reading stale data from a cache that hasn't yet updated."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "A transaction ensures multiple operations succeed or fail together, maintaining data consistency.",
-    "question": "Why do transactions help with concurrency?",
-    "correctAnswer": "They ensure grouped changes succeed or fail together, preventing partial updates when conflicts occur.",
-    "dummyAnswers": [
-      "They allow databases to ignore locks since the transaction will retry automatically.",
-      "They eliminate the need for retry logic because conflicts no longer occur.",
-      "They delay updates until off-peak hours to reduce the chance of contention."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "CQRS separates reads and writes so write operations can enforce stricter consistency and concurrency control.",
-    "question": "How can a CQRS architecture improve concurrency handling?",
-    "correctAnswer": "It separates write models from read models so writes can enforce strong consistency without blocking reads.",
-    "dummyAnswers": [
-      "It prevents all concurrency issues by routing writes to the fastest server.",
-      "It stores all data in memory to eliminate database access delays.",
-      "It forces all operations to go through a single microservice to avoid conflicts."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Message queues allow work to be processed asynchronously while smoothing out bursts and reducing contention.",
-    "question": "How does a message queue help with concurrency issues?",
-    "correctAnswer": "It moves slow or conflicting work off the request thread so operations can be processed asynchronously without collisions.",
-    "dummyAnswers": [
-      "It reorganizes database indexes automatically to prevent lock escalations.",
-      "It forces all messages to be processed in parallel to maximize throughput.",
-      "It ensures every API request is processed in the order it was received."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Retry logic must include backoff to prevent overwhelming the system when conflicts or failures occur.",
-    "question": "Why is exponential backoff important when retrying conflicting operations?",
-    "correctAnswer": "It spaces out retries to reduce contention and prevent thundering herd overload.",
-    "dummyAnswers": [
-      "It retries as fast as possible so the operation eventually succeeds first.",
-      "It guarantees that the conflict will be resolved by the next retry attempt.",
-      "It stores failed requests temporarily in memory to ensure faster replays."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Deadlock detection ensures the system recognizes circular lock dependencies so it can break out and recover.",
-    "question": "How does deadlock detection improve concurrency?",
-    "correctAnswer": "It identifies circular waits and cancels one operation so progress can resume.",
-    "dummyAnswers": [
-      "It ensures all locks are upgraded to exclusive mode to avoid contention.",
-      "It disables locking entirely once too many threads are waiting.",
-      "It forcefully restarts the database when lock timeouts exceed a threshold."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "An idempotent operation can be invoked multiple times with the same input and produce the same effect as a single invocation.",
-    "question": "In the context of REST APIs, what does it mean for an operation to be idempotent?",
-    "correctAnswer": "Calling it multiple times with the same input results in the same final state as calling it once.",
-    "dummyAnswers": [
-      "It always completes within a fixed time regardless of system load.",
-      "It can only be called once per client session to avoid duplicate processing.",
-      "It guarantees that the response body is bit-for-bit identical on every call."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Optimistic locking assumes conflicts are rare and detects them by checking a version or timestamp before committing a write.",
-    "question": "What is optimistic locking?",
-    "correctAnswer": "Letting concurrent reads happen freely and using a version check on update to detect and reject conflicting writes.",
-    "dummyAnswers": [
-      "Locking rows as soon as they are read so no other transactions can access them.",
-      "Automatically retrying failed updates until one eventually succeeds, without checking versions.",
-      "Blocking all reads whenever a write transaction is in progress on the same table."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "Pessimistic locking prevents conflicts by locking a resource for a writer so that others must wait before reading or writing it.",
-    "question": "What is pessimistic locking?",
-    "correctAnswer": "Acquiring a lock on data before modifying it so other operations must wait until the lock is released.",
-    "dummyAnswers": [
-      "Deferring writes until off-peak hours so conflicts are unlikely to happen.",
-      "Allowing all operations to proceed in parallel and resolving conflicts at read time.",
-      "Relying on the cache layer to prevent multiple updates to the same record."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "An ETag is a version identifier for a resource representation used to support caching and conditional requests.",
-    "question": "What is an ETag in HTTP/REST?",
-    "correctAnswer": "A token that represents the current version of a resource so clients can make conditional requests or detect stale updates.",
-    "dummyAnswers": [
-      "A special header that forces the browser to bypass all caches and always hit the origin server.",
-      "A cookie that tracks which users have accessed a resource for audit purposes.",
-      "A cryptographic checksum used only for encrypting HTTP payloads over TLS."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "A race condition occurs when the outcome of operations on shared state depends on the relative timing of those operations.",
-    "question": "What is a race condition?",
-    "correctAnswer": "A situation where concurrent operations on shared state yield inconsistent results because the outcome depends on timing.",
-    "dummyAnswers": [
-      "A situation where a single long-running request starves all other requests on the server.",
-      "A performance bottleneck caused by too many synchronous network calls.",
-      "A condition where multiple threads compete for CPU time but never access shared data."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "A deadlock is a circular waiting situation where two or more entities each hold a resource and wait forever for the others to release theirs.",
-    "question": "What is a deadlock?",
-    "correctAnswer": "When multiple threads or transactions hold resources and wait on each other in a cycle so none can proceed.",
-    "dummyAnswers": [
-      "When a single thread loops forever without releasing the CPU.",
-      "When a database temporarily rejects connections because of a spike in traffic.",
-      "When a process crashes due to running out of memory during heavy load."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency",
-    "lesson": "A transaction groups multiple operations into an all-or-nothing unit of work to maintain data consistency.",
-    "question": "What is a transaction in the context of databases and APIs?",
-    "correctAnswer": "A unit of work where either all included operations succeed together or they all roll back.",
-    "dummyAnswers": [
-      "A single HTTP request that must always succeed without retries.",
-      "A one-way message sent from the client to the server without a response.",
-      "A batch job that runs on a schedule, regardless of success or failure."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "CQRS (Command Query Responsibility Segregation) splits write responsibilities (commands) from read responsibilities (queries).",
-    "question": "What is the main idea behind CQRS?",
-    "correctAnswer": "Separating write models from read models so commands and queries can be designed, scaled, and optimized independently.",
-    "dummyAnswers": [
-      "Using the same model for both reads and writes to keep the architecture simple.",
-      "Storing commands and queries in different databases to improve indexing speed.",
-      "Requiring every API endpoint to support both GET and POST for compatibility."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "SOLID is a set of five object-oriented design principles aimed at creating maintainable, flexible, and testable code.",
-    "question": "In software design, what does SOLID refer to?",
-    "correctAnswer": "A collection of principles that encourage maintainable, flexible, and testable object-oriented code.",
-    "dummyAnswers": [
-      "A performance tuning guide focused on minimizing memory allocations in .NET.",
-      "A set of rules that defines the mandatory folder structure of enterprise projects.",
-      "A naming convention standard for classes, interfaces, and methods in large teams."
-    ]
-  },
-  {
-    "domain": "Interview: .NET Fundamentals",
-    "lesson": "CORS (Cross-Origin Resource Sharing) is a browser security mechanism that controls which origins may call an API.",
-    "question": "What is CORS and why does it matter for APIs?",
-    "correctAnswer": "A browser-enforced policy that restricts cross-origin requests unless the server explicitly allows certain origins, methods, and headers.",
-    "dummyAnswers": [
-      "A protocol for encrypting HTTP traffic between microservices in a cluster.",
-      "A load-balancing algorithm that routes requests across multiple API instances.",
-      "A database feature that allows queries to span multiple schemas and servers."
-    ]
-  },
-  {
-    "domain": "Interview: Distributed Systems & Consistency",
-    "lesson": "Eventual consistency trades off immediate correctness for availability and scalability, but you must design UI and workflows that tolerate temporarily stale data.",
-    "question": "When is it reasonable to accept eventual consistency instead of strong consistency in an API?",
-    "correctAnswer": "When users can tolerate briefly stale reads in exchange for better availability, scalability, or latency.",
-    "dummyAnswers": [
-      "Whenever the system uses SQL instead of NoSQL databases.",
-      "Only when the business cannot afford to pay for strongly consistent databases.",
-      "When you want to guarantee that all replicas always see the same data at the same time."
-    ]
-  },
-  {
-    "domain": "Interview: API Design & Architecture",
-    "lesson": "For workflows that span multiple services, you often combine synchronous APIs for user-facing steps with asynchronous messaging for long-running or failure-prone work.",
-    "question": "How would you decide between using synchronous REST calls and asynchronous messaging for a business workflow?",
-    "correctAnswer": "Use synchronous calls for immediate user feedback and async messaging for long-running, failure-prone, or cross-service work.",
-    "dummyAnswers": [
-      "Always use synchronous REST because asynchronous messaging is only for logging.",
-      "Always use asynchronous messaging because REST cannot handle high traffic.",
-      "Pick whichever the team prefers; the workflow and failure modes don’t really matter."
-    ]
-  },
-  {
-    "domain": "Interview: API Concurrency & Reliability",
-    "lesson": "Idempotency keys let clients safely retry operations like payments or order creation without causing duplicates, by letting the server recognize repeated requests.",
-    "question": "How do idempotency keys help when designing a payment or order-creation API?",
-    "correctAnswer": "They allow clients to safely retry the same logical operation without creating duplicate payments or orders.",
-    "dummyAnswers": [
-      "They encrypt the payment details in transit to comply with PCI.",
-      "They force the API to run each payment in a separate database transaction.",
-      "They guarantee that every request is processed exactly once by the network."
-    ]
-  },
-  {
-    "domain": "Interview: Observability & Operations",
-    "lesson": "Good tracing includes correlation IDs, span names, timing, and key metadata (user, tenant, resource IDs) so you can follow a request across services and find bottlenecks.",
-    "question": "What information would you include in traces to debug a slow request across multiple services?",
-    "correctAnswer": "Correlation IDs and spans with timing plus key metadata like user/tenant, resource IDs, and operation names.",
-    "dummyAnswers": [
-      "Only HTTP status codes, since timing is captured automatically by the OS.",
-      "Just the raw SQL text for each query, without any timestamps or context.",
-      "Only CPU and memory metrics, since traces should not include request details."
-    ]
-  },
-  {
-    "domain": "Interview: Feature Flags & Release Strategy",
-    "lesson": "Feature flags let you decouple deploy from release, gradually roll out changes, and quickly disable problematic behavior without redeploying.",
-    "question": "How do feature flags change the way you deploy and release backend features?",
-    "correctAnswer": "They let you deploy code dark, gradually enable it for segments, and quickly turn it off if issues appear.",
-    "dummyAnswers": [
-      "They remove the need for testing because features can always be turned off later.",
-      "They guarantee zero bugs by preventing users from accessing new code paths.",
-      "They replace version control by tracking which features are currently active."
-    ]
-  },
-  {
-    "domain": "Interview: Security & Secret Management",
-    "lesson": "Secrets like JWT signing keys, connection strings, and API keys should be rotated regularly, stored in secure vaults, and changed with minimal downtime.",
-    "question": "How would you approach rotating sensitive secrets such as JWT signing keys in production?",
-    "correctAnswer": "Store keys in a secure vault, support multiple active keys during rotation, and phase in the new key while phasing out the old.",
-    "dummyAnswers": [
-      "Hard-code the new key in source control so everyone can update quickly.",
-      "Change the key immediately in all services and force all users to sign out.",
-      "Rotate keys only when a breach is confirmed to avoid unnecessary work."
-    ]
-  },
-  {
-    "domain": "Interview: Caching & Performance",
-    "lesson": "Effective caching requires carefully chosen cache keys, sensible TTLs, and an invalidation strategy aligned with the data’s update patterns and consistency requirements.",
-    "question": "What are the key design decisions when adding a cache layer in front of an API?",
-    "correctAnswer": "Choosing good cache keys, TTLs, and invalidation rules that match how often the data changes and how fresh it must be.",
-    "dummyAnswers": [
-      "Always caching every response forever so the database is never queried again.",
-      "Using random cache keys so entries won’t conflict with each other.",
-      "Enabling caching only for POST endpoints so GET requests always hit the source."
-    ]
-  },
-  {
-    "domain": "Interview: .NET & Domain Modeling",
-    "lesson": "Mapping DTOs to domain models helps keep the API contract stable while allowing the domain to evolve internally with minimal impact on external clients.",
-    "question": "Why is it useful to separate API DTOs from internal domain models in a .NET application?",
-    "correctAnswer": "It stabilizes the external contract while letting the internal domain evolve without breaking clients.",
-    "dummyAnswers": [
-      "It is required by the CLR to serialize objects over HTTP.",
-      "It eliminates the need for versioning because models never change.",
-      "It prevents the use of validation attributes on any domain classes."
-    ]
-  },
-  {
-    "domain": "Interview: React State Management",
-    "lesson": "Choosing where to keep state (local, lifted, context, or global store) depends on how many components need it, how often it changes, and how isolated you want the updates to be.",
-    "question": "How do you decide whether to keep state local to a component, lift it up, or move it to context/global state in React?",
-    "correctAnswer": "By looking at which components need the data, how widely it’s shared, and the impact of re-renders across the tree.",
-    "dummyAnswers": [
-      "Always store all state in a single global store so debugging is easier.",
-      "Always keep state local to avoid learning context or global libraries.",
-      "Base the decision only on file size and number of lines in each component."
-    ]
-  },
-  {
-    "domain": "Interview: Resilience & Error Handling",
-    "lesson": "Resilient APIs treat errors as first-class: they use clear error contracts, retries with backoff, circuit breakers, and graceful degradation paths for downstream failures.",
-    "question": "What does it mean to design an API to fail gracefully when a downstream service is unhealthy?",
-    "correctAnswer": "Expose clear error responses, use retries and circuit breakers, and degrade functionality instead of fully crashing.",
-    "dummyAnswers": [
-      "Return generic 500 errors for all failures to avoid leaking implementation details.",
-      "Retry all failing calls in a tight loop until the downstream service recovers.",
-      "Silently swallow errors so clients don’t see any indication that something went wrong."
+    "domain": "Svelte: Re-rendering Logic",
+    "lesson": "Svelte tracks which variables change and only updates the parts of the DOM that depend on them.",
+    "question": "How does Svelte decide which parts of the DOM to update when state changes?",
+    "correctAnswer": "Updates only template parts that depend on changed variables.",
+    "dummyAnswers": [
+      "It always re-renders the entire component tree from the root",
+      "It uses a virtual DOM diff algorithm like React",
+      "It manually compares previous and next props for every component"
     ]
   },
   {
