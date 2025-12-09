@@ -23,7 +23,7 @@
 
   // Session config
   let selectedDomains = new Set<string>();
-  let minQuestions = 12;
+  let minQuestions = 10;
 
   // Active session
   let sessionQuestions: Question[] = [];
@@ -290,7 +290,7 @@
           </div>
           <div class="card-body">
             {#if currentQuestion.lesson}
-              <p class="text-muted small mb-2">
+              <p class="d-none text-muted small mb-2">
                 {currentQuestion.lesson}
               </p>
             {/if}
