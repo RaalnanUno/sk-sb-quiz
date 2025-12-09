@@ -1,0 +1,531 @@
+[
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "When describing API experience in an interview, focus on specific projects, your role, the tech stack, and measurable outcomes.",
+    "question": "How should you describe your experience building APIs in a senior-level interview?",
+    "correctAnswer": "Use concrete projects, your responsibilities, tech stack, and measurable outcomes.",
+    "dummyAnswers": [
+      "List every technology you have ever used without examples.",
+      "Focus only on your soft skills and avoid technical detail.",
+      "Talk only about school projects and avoid production examples."
+    ]
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "IDisposable is used to deterministically release unmanaged resources such as file handles and database connections.",
+    "question": "What is IDisposable in .NET and why is it used?",
+    "correctAnswer": "It exposes Dispose so you can deterministically release unmanaged resources.",
+    "dummyAnswers": [
+      "It is used to mark classes that should never be instantiated.",
+      "It enables automatic UI rendering in WPF.",
+      "It is required for every class that uses generics."
+    ]
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "The === operator compares both value and type without coercion, while == performs type coercion first.",
+    "question": "In simple terms, what is the difference between == and === in JavaScript?",
+    "correctAnswer": "== coerces types before comparing; === compares value and type without coercion.",
+    "dummyAnswers": [
+      "=== is slower so it should be avoided in production.",
+      "== only works for numbers and === only works for strings.",
+      "=== performs deep object comparison by default."
+    ]
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "useMemo memoizes the result of an expensive calculation and only recomputes when its dependencies change.",
+    "question": "What problem does useMemo solve in React?",
+    "correctAnswer": "It avoids recomputing expensive values on every render by memoizing them.",
+    "dummyAnswers": [
+      "It replaces Redux and manages global state.",
+      "It forces a component to re-render on every state change.",
+      "It automatically performs API calls when props change."
+    ]
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "The decimal type is preferred for financial calculations because it provides high precision with base-10 representation.",
+    "question": "What is the best .NET type to represent financial balances?",
+    "correctAnswer": "Use the decimal type for precise base-10 financial calculations.",
+    "dummyAnswers": [
+      "Use float because it is the fastest numeric type.",
+      "Use double because it always avoids rounding errors.",
+      "Use string so you never lose any digits."
+    ]
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "When describing API experience in an interview, focus on specific projects, your role (design, implementation, testing, deployment), the tech stack (e.g., ASP.NET Core, NestJS, Node, SQL/NoSQL), and measurable outcomes like performance, reliability, or business impact.",
+    "question": "How should you describe your experience building APIs in a senior-level interview?",
+    "correctAnswer": "Use concrete projects, your responsibilities, tech stack, and measurable outcomes (performance, reliability, business impact)."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Common API versioning strategies include versioning in the URL (/v1, /v2), in headers, or in query parameters, combined with clear deprecation policies, documentation, and routing that allows multiple versions to run side by side in production.",
+    "question": "How do you typically handle API versioning in a production environment?",
+    "correctAnswer": "Expose versions (URL or headers) and run multiple versions side by side with clear deprecation policies."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Backward compatibility means new API versions don’t break existing clients. You achieve this by avoiding breaking changes, using additive changes (new fields/endpoints), supporting multiple versions at once, and using feature flags or contracts to manage change over time.",
+    "question": "How do you handle backward compatibility when evolving an API?",
+    "correctAnswer": "Avoid breaking changes, add behavior instead of changing it, and support multiple versions in parallel."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "In a NestJS + TypeORM stack, Nest provides modular structure, controllers, and dependency injection for your HTTP API, while TypeORM handles persistence, migrations, and entities. Together they support clean layering, repository patterns, and easier maintenance of versioned and backward-compatible APIs.",
+    "question": "How do NestJS and TypeORM fit into your approach to building maintainable APIs?",
+    "correctAnswer": "NestJS structures controllers and DI, TypeORM handles entities and persistence, together enforcing clean layering."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Handling concurrency in REST APIs involves using optimistic or pessimistic locking, idempotent endpoints, proper transaction boundaries, and sometimes queues or background workers so that shared resources aren’t corrupted under high load.",
+    "question": "How do you handle concurrency issues in a REST API?",
+    "correctAnswer": "Use locking (often optimistic), transactions, idempotent endpoints, and queues to protect shared resources."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Node’s event loop is a single-threaded loop that processes a queue of callbacks. CPU-bound work blocks the loop, while I/O is handed off to the OS or libuv thread pool and resumes via callbacks/promises when complete.",
+    "question": "How does the event loop work in Node.js at a high level?",
+    "correctAnswer": "A single-threaded loop processes callbacks while I/O runs asynchronously via the OS or thread pool."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "To troubleshoot a slow SQL query, examine the execution plan, check indexes and statistics, filter early, avoid unnecessary scans or sorts, and measure improvements iteratively after adding or tuning indexes or rewriting the query.",
+    "question": "How do you troubleshoot a slow SQL query in production?",
+    "correctAnswer": "Review the execution plan, fix indexing and joins, reduce scans/sorts, and measure performance after each change."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Dynatrace is an APM tool that provides end-to-end tracing, metrics, logs, and real-user monitoring, letting you see service dependencies, response times, hotspots, and errors across distributed systems.",
+    "question": "What does Dynatrace provide in the context of monitoring an application?",
+    "correctAnswer": "End-to-end APM: tracing, metrics, logs, and real-user monitoring across services."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "To secure an API endpoint, you typically combine authentication (JWT, OAuth2, API keys), authorization (role/claim checks), input validation, rate limiting, HTTPS, and sometimes mTLS or WAF rules.",
+    "question": "How do you secure an API endpoint in production?",
+    "correctAnswer": "Use authentication, authorization, input validation, HTTPS, and rate limiting around the endpoint."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Zero-downtime deployment usually relies on blue-green or rolling deployments, health checks, backward-compatible schema changes, and graceful shutdown so that old and new versions can run briefly in parallel.",
+    "question": "How do you design for zero-downtime deployments?",
+    "correctAnswer": "Use blue-green or rolling deploys, health checks, backward-compatible changes, and graceful shutdown."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "SQL injection is prevented by never concatenating user input into SQL and instead using parameterized queries, ORMs, stored procedures, and input validation.",
+    "question": "How do you prevent SQL injection attacks?",
+    "correctAnswer": "Use parameterized queries or ORM bindings instead of string-concatenated SQL."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "When an ASP.NET Core request hits the server, it passes through Kestrel, then middleware in the pipeline (auth, routing, etc.), then the matched endpoint (controller or minimal API), and finally the response flows back through the pipeline.",
+    "question": "What happens internally when an ASP.NET Core request hits the server?",
+    "correctAnswer": "Kestrel receives it, runs it through middleware, executes the endpoint, then returns the response through the pipeline."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "Custom logging means defining structured log messages, correlation IDs, and log scopes around key operations, and sending them to sinks like files, Elastic, or Application Insights for querying and alerting.",
+    "question": "How do you handle custom logging in a complex application?",
+    "correctAnswer": "Use structured logs with correlation IDs and scopes, and ship them to centralized sinks for querying and alerts."
+  },
+  {
+    "domain": "Interview: API Design & Architecture",
+    "lesson": "When describing a challenging application, focus on complexity (scale, performance, legacy integration), your role, key technical or organizational challenges, and what you did to solve them and improve the system.",
+    "question": "How should you describe a challenging application you’ve worked on in an interview?",
+    "correctAnswer": "Explain the context, the main challenges, your technical contributions, and the measurable outcomes."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "IDisposable is an interface that defines a Dispose method, used to release unmanaged resources like file handles, database connections, or OS handles deterministically instead of waiting for the garbage collector.",
+    "question": "What is IDisposable in .NET and why is it used?",
+    "correctAnswer": "It exposes Dispose so you can deterministically release unmanaged resources like DB connections or file handles."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "IEnumerable is for in-memory, forward-only iteration, while IQueryable builds an expression tree that can be translated and executed by a remote provider (like a database) for deferred, optimized queries.",
+    "question": "What is the main difference between IEnumerable and IQueryable?",
+    "correctAnswer": "IEnumerable runs in-memory iteration; IQueryable builds expression trees executed by a remote provider like a DB."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "For financial balances in .NET, you should use the decimal type because it provides high precision with base-10 representation, avoiding rounding errors common with floating-point types.",
+    "question": "What is the best .NET type to represent financial balances?",
+    "correctAnswer": "Use the decimal type for precise base-10 financial calculations."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Boxing is converting a value type to an object (or interface) by allocating it on the heap, while unboxing extracts the value type back from the object reference, incurring allocation and casting cost.",
+    "question": "What are boxing and unboxing in .NET?",
+    "correctAnswer": "Boxing wraps a value type in an object; unboxing extracts the value type from that object."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Managed code runs under the CLR with services like GC and type safety; unmanaged code runs directly on the OS without CLR services and requires manual memory management.",
+    "question": "What is the difference between managed and unmanaged code in .NET?",
+    "correctAnswer": "Managed code runs under the CLR with GC; unmanaged code runs directly on the OS without CLR services."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Dependency injection in .NET Core means registering services in the DI container and letting the framework supply dependencies to constructors, improving testability, flexibility, and separation of concerns.",
+    "question": "Why would you use dependency injection in a .NET Core application?",
+    "correctAnswer": "It lets the framework supply dependencies, improving testability, flexibility, and separation of concerns."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "An interface defines a contract of members without implementation; an abstract class can provide both abstract and concrete members and supports shared base behavior plus state.",
+    "question": "What is the main difference between an interface and an abstract class in .NET?",
+    "correctAnswer": "Interfaces define contracts only; abstract classes can define contracts plus shared implementation and state."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Common patterns to mention include Repository, Factory, Strategy, Singleton, and Mediator. Focus on the problem each solves and how it improves testability, decoupling, or readability.",
+    "question": "How might you briefly explain three design patterns in an interview?",
+    "correctAnswer": "Pick patterns like Repository, Factory, and Strategy and describe the problem each solves and how it decouples code."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "The Mediator pattern centralizes communication between objects so they don’t reference each other directly, reducing coupling and making behavior easier to coordinate and change.",
+    "question": "What is the Mediator pattern and why is it useful?",
+    "correctAnswer": "It centralizes communication between components so they don’t talk directly, reducing coupling."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "CORS is a browser security mechanism that controls which origins can make cross-origin requests to your API. You configure allowed origins, methods, headers, and credentials on the server.",
+    "question": "What is CORS and why is it important for APIs?",
+    "correctAnswer": "A browser policy that restricts cross-origin requests; you configure allowed origins and methods on the server."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "SOLID is a set of five design principles—Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion—that help you write maintainable, flexible, and testable code.",
+    "question": "What are SOLID principles meant to achieve in software design?",
+    "correctAnswer": "They guide you to write maintainable, flexible, testable code by enforcing good object-oriented design."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Separation of concerns means breaking a system into distinct parts, each handling one area of responsibility (e.g., UI, business logic, data access), to reduce coupling and make changes safer.",
+    "question": "What is separation of concerns?",
+    "correctAnswer": "Splitting a system into parts where each handles one responsibility to reduce coupling."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Microservices split functionality into small, independently deployable services around business capabilities, while SOA is a broader concept of services communicating over a network, often with more centralized governance.",
+    "question": "How do Microservices differ from traditional Service-Oriented Architecture (SOA)?",
+    "correctAnswer": "Microservices are smaller, independently deployable, and focused on business capabilities; SOA is broader and more centralized."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "Race conditions occur when multiple operations access shared state concurrently and the result depends on timing. You handle them by using locks, atomic operations, transactions, or designing idempotent operations.",
+    "question": "How should you handle race conditions in a multi-threaded or distributed system?",
+    "correctAnswer": "Protect shared state with locks, atomic operations, or transactions and design idempotent operations."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": "A deadlock happens when two or more threads each hold a resource and wait forever for the other to release its resource. It’s prevented by consistent lock ordering, timeouts, and minimizing lock scope.",
+    "question": "What is a deadlock condition?",
+    "correctAnswer": "When threads hold resources and wait on each other in a cycle so none can proceed."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": ".NET’s garbage collector periodically finds objects that are no longer reachable and frees their memory, using generations and compacting the heap to reduce fragmentation and improve performance.",
+    "question": "How does the .NET garbage collector work at a high level?",
+    "correctAnswer": "It finds unreachable objects, frees their memory, and compacts the heap, using generational collections."
+  },
+  {
+    "domain": "Interview: .NET Fundamentals",
+    "lesson": ".NET manages memory on the managed heap for reference types and the stack for value types, with the GC reclaiming unused managed memory, while unmanaged resources must be released explicitly (e.g., via IDisposable).",
+    "question": "How does .NET handle memory management overall?",
+    "correctAnswer": "It uses a managed heap with GC for objects and requires explicit cleanup for unmanaged resources."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "To detect and fix memory leaks in a high-throughput JS app, you monitor heap usage, use browser dev tools for heap snapshots and allocation timelines, ensure event listeners and timers are cleaned up, and avoid retaining unnecessary references in long-lived objects.",
+    "question": "How would you detect and resolve memory leaks in a high-throughput JavaScript application?",
+    "correctAnswer": "Monitor heap growth, use dev tools to find retained objects, and clean up listeners, timers, and long-lived references."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "JavaScript itself is single-threaded at the language level, but the environment (browser/Node) can use multiple threads for I/O and background work via the event loop and task queues.",
+    "question": "Is JavaScript single-threaded or multi-threaded?",
+    "correctAnswer": "The JS runtime is single-threaded, but the environment uses multiple threads for async work via the event loop."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "The event loop repeatedly picks tasks from the queue and executes them on the single JS thread, interleaving callbacks from timers, promises, and I/O so that asynchronous operations can complete without blocking.",
+    "question": "How does the JavaScript event loop work at a high level?",
+    "correctAnswer": "It pulls tasks from queues and runs them on a single thread, scheduling async callbacks as operations complete."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "The == operator does type coercion before comparison, while === compares both value and type without coercion, making === safer and more predictable.",
+    "question": "In simple terms, what is the difference between == and === in JavaScript?",
+    "correctAnswer": "== coerces types before comparing; === compares value and type without coercion."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "Hoisting means variable and function declarations are moved to the top of their scope at compile time, so functions can be called before they appear and var declarations exist but are undefined until assignment.",
+    "question": "What is hoisting in JavaScript?",
+    "correctAnswer": "Declarations are conceptually moved to the top of their scope so they exist before their written position."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "In TypeScript, a union type (A | B) means a value can be one of several types, while an intersection type (A & B) means a value must satisfy all of the combined types at once.",
+    "question": "What is the difference between a union type and an intersection type in TypeScript?",
+    "correctAnswer": "Union means either one type or another; intersection means the value must satisfy all combined types."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "Arrow functions are a shorter function syntax that do not have their own this, arguments, or prototype; instead, they capture this from their surrounding lexical scope.",
+    "question": "How would you explain arrow functions in JavaScript in simple terms?",
+    "correctAnswer": "They are concise functions that capture this from their surrounding scope instead of defining their own."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "Regular functions get their own this based on how they’re called (e.g., as a method, via call/apply), while arrow functions capture this lexically from where they are defined and cannot be used as constructors.",
+    "question": "What is the key difference between arrow functions and regular functions?",
+    "correctAnswer": "Regular functions have their own dynamic this; arrow functions capture this from the surrounding scope."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "The Virtual DOM is an in-memory representation of the real DOM used to compute an efficient set of changes before updating the actual DOM, reducing direct DOM manipulation cost.",
+    "question": "What is the Virtual DOM in the context of regular JavaScript frameworks?",
+    "correctAnswer": "An in-memory tree that lets the framework diff changes and update the real DOM efficiently."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "In React, the Virtual DOM is React’s internal tree of elements; when state changes, React computes a diff between the previous and new trees and applies only the minimal necessary changes to the real DOM.",
+    "question": "How would you explain the Virtual DOM in React?",
+    "correctAnswer": "React keeps a virtual tree and diffs new and old trees to apply minimal updates to the real DOM."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "Reconciliation is the process where React compares the current Virtual DOM tree with the new one after an update and decides which DOM nodes to create, update, or remove.",
+    "question": "What is reconciliation in React?",
+    "correctAnswer": "React’s process of diffing old and new trees to decide which DOM updates to perform."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "To implement reconciliation in React, you rely on stable keys for lists, avoid unnecessary re-renders, and structure components so React can efficiently compare and reuse elements during the diff.",
+    "question": "How can you help React’s reconciliation process in your components?",
+    "correctAnswer": "Provide stable keys and structure components to minimize unnecessary changes between renders."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "Prop drilling happens when you pass props through multiple intermediate components just so a deeply nested component can use them, often leading to unnecessary coupling and verbosity.",
+    "question": "What is prop drilling in React?",
+    "correctAnswer": "Passing props through many layers solely so deeply nested components can access them."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "useMemo memoizes the result of an expensive calculation and recomputes it only when its dependencies change, preventing unnecessary work on every render.",
+    "question": "What problem does useMemo solve in React?",
+    "correctAnswer": "It avoids recomputing expensive values on every render by memoizing them based on dependencies."
+  },
+  {
+    "domain": "Interview: JavaScript & React",
+    "lesson": "Redux Saga is a middleware that uses generator functions (sagas) to manage complex asynchronous side effects, such as API calls, in a more declarative and testable way.",
+    "question": "What is Redux Saga and why would you use it?",
+    "correctAnswer": "A Redux middleware that uses sagas to orchestrate async side effects in a declarative, testable way."
+  },
+  {
+    "domain": "Frontend: Leaflet Rendering",
+    "lesson": "Leaflet will not initialize a map if the map container reference is null, if the map has already been created, or if there are no properties with valid latitude/longitude coordinates.",
+    "question": "Why did the Leaflet map fail to render before we added fallback logic?",
+    "correctAnswer": "No properties had valid latitude and longitude, so the map never initialized."
+  },
+  {
+    "domain": "Frontend: TypeScript & Leaflet",
+    "lesson": "Leaflet's TypeScript definitions are strict and often conflict with Vue refs, so forcing the map to be typed as 'any' prevents addTo(), fitBounds(), and other methods from throwing type errors.",
+    "question": "Why did we change the map ref to type 'any' in the Vue component?",
+    "correctAnswer": "Leaflet’s typings clash with Vue refs, so we typed the map as any to avoid errors."
+  },
+  {
+    "domain": "API: Endpoint Behavior",
+    "lesson": "The mower's nearest-properties endpoint originally returned an empty array because it depended on service area ZIP codes; switching to returning all properties guaranteed the frontend would always have data to map.",
+    "question": "Why did the original /mower/nearest-properties endpoint return no properties?",
+    "correctAnswer": "It filtered by service area ZIP codes that were empty or didn’t match anything."
+  },
+  {
+    "domain": "Backend: Returning Map Data",
+    "lesson": "Returning a flattened structure that includes street, city, postalCode, latitude, and longitude makes it easy for the frontend to draw markers without traversing nested relations.",
+    "question": "Why does the API flatten property + address data into a single object for the map?",
+    "correctAnswer": "To let the frontend read display fields and coordinates without traversing nested relations."
+  },
+  {
+    "domain": "Geocoding: Map Failures",
+    "lesson": "If a property is missing geocoded coordinates, the map component must skip it; otherwise, Leaflet will attempt to create markers with invalid lat/lng values and fail.",
+    "question": "Why do we filter only properties with latitude and longitude before creating markers?",
+    "correctAnswer": "Because Leaflet can’t create markers from properties that don’t have valid coordinates."
+  },
+  {
+    "domain": "Vue Lifecycle & Mapping",
+    "lesson": "initMapIfNeeded() should only run after properties have loaded and must check multiple early-exit conditions to avoid initializing the map too early.",
+    "question": "Why do we call initMapIfNeeded() inside the finally block of loadNearestProperties()?",
+    "correctAnswer": "So the map initializes only after loading finishes, whether the API call succeeds or fails."
+  },
+  {
+    "domain": "API: Property Fetch Strategy",
+    "lesson": "Switching the endpoint to return all properties instead of filtering by service areas ensures the map always has data, making testing and UI development easier.",
+    "question": "Why did we temporarily change the API to return all properties for the mower map?",
+    "correctAnswer": "To ensure the frontend always receives some properties, even when service areas are missing."
+  },
+  {
+    "domain": "Debugging: Frontend ↔ Backend",
+    "lesson": "Adding console.log to inspect the data returned from the API is a simple but powerful way to verify what the frontend is actually receiving.",
+    "question": "Why did we add console.log inside loadNearestProperties()?",
+    "correctAnswer": "To inspect the API response and see whether the empty map was a frontend or backend issue."
+  },
+  {
+    "domain": "Backend: Authorization",
+    "lesson": "Guards like JwtAuthGuard run before your controller logic. If the Authorization header is missing or token is invalid, the request never reaches your method.",
+    "question": "Why does a controller-level try/catch NOT catch a 401 from JwtAuthGuard?",
+    "correctAnswer": "Because JwtAuthGuard throws the 401 before the controller method ever runs."
+  },
+  {
+    "domain": "Backend: Entity Relations",
+    "lesson": "When filtering by a related entity's field, you must use a nested where clause like where: { requestedBy: { id: userId } } instead of trying to filter directly by the relationId property.",
+    "question": "Why did filtering job requests by requestedByUserId originally fail?",
+    "correctAnswer": "Because TypeORM expects a nested relation filter, not a direct check on the relationId field."
+  },
+  {
+    "domain": "Backend: Date Handling",
+    "lesson": "Invalid dates silently produce Date objects whose internal time is NaN. Calling toISOString() on them triggers RangeError: Invalid time value.",
+    "question": "What is the root cause of Invalid time value errors in toISOString()?",
+    "correctAnswer": "The Date was created from an invalid value, so its internal time became NaN."
+  },
+  {
+    "domain": "Backend: DTO Validation",
+    "lesson": "Class-validator only validates properties that exist in the DTO. It does NOT validate unknown fields, so unexpected payload keys must be explicitly stripped or rejected.",
+    "question": "Why might invalid fields be silently accepted in a POST body?",
+    "correctAnswer": "Because class-validator ignores any payload properties that are not defined on the DTO."
+  },
+  {
+    "domain": "Backend: NestJS Routing",
+    "lesson": "Decorators like @Get(), @Post(), @Param(), and @Query() may only be used inside controllers. Putting them inside a service file causes TypeScript errors.",
+    "question": "Why did NestJS throw errors about Get, Param, and ParseIntPipe inside job-requests.service.ts?",
+    "correctAnswer": "Route decorators belong in controllers only, so using them in a service caused errors."
+  },
+  {
+    "domain": "Backend: TypeORM Repositories",
+    "lesson": "When injecting custom entities into a service, you must also include those entities in the module's TypeOrmModule.forFeature() list or Nest cannot provide their repository.",
+    "question": "Why did injecting JobQuoteRepository into JobRequestsService fail before updating the module?",
+    "correctAnswer": "The JobQuote entity wasn’t registered in TypeOrmModule.forFeature, so Nest couldn’t inject its repository."
+  },
+  {
+    "domain": "API: Status Transitions",
+    "lesson": "When the first quote is submitted for a job request, its status should change from Open to Quoted to reflect that it now has active bids.",
+    "question": "Why does submitting a first quote trigger a status change to Quoted?",
+    "correctAnswer": "Because once a quote exists, the job should show that it has active bids."
+  },
+  {
+    "domain": "Backend: Duplicate Prevention",
+    "lesson": "Before inserting a new quote, you should check for an existing quote by the same mower for the same job. Otherwise duplicate quotes can be created.",
+    "question": "Why must the service check for an existing quote before saving a new one?",
+    "correctAnswer": "To stop the same mower from submitting multiple quotes on a single job request."
+  },
+  {
+    "domain": "Backend: Relation Loading",
+    "lesson": "When building detailed response DTOs, relations like jobRequest.property must be eager-loaded or explicitly included in the relations array.",
+    "question": "Why did accessing property.address fail before updating the find query?",
+    "correctAnswer": "Because the property relation wasn’t being loaded in the query’s relations list."
+  },
+  {
+    "domain": "Backend: Role-Based Access",
+    "lesson": "Role checks should be performed early to avoid exposing internal entity data to unauthorized users and to prevent accidental leakage.",
+    "question": "Why does findOpenForMowerById immediately check user.role?",
+    "correctAnswer": "To prevent non-mowers from seeing mower-specific job details or sensitive data."
+  },
+  {
+    "domain": "Backend: NestJS Auth & Guards",
+    "lesson": "Guards like JwtAuthGuard run before your controller. If the Authorization header is missing or the token is invalid, the guard throws a 401 and the controller method (and its try/catch) never runs.",
+    "question": "Why did the /job-requests/my endpoint originally return HTTP 401?",
+    "correctAnswer": "Because JwtAuthGuard rejected the request before the controller method could execute."
+  },
+  {
+    "domain": "Backend: TypeORM Relations",
+    "lesson": "When using TypeORM relations, you filter using the relation name and a nested object (e.g. requestedBy: { id: userId }) instead of the relation-id helper property.",
+    "question": "What is the correct way to filter by the requesting user in TypeORM?",
+    "correctAnswer": "Use a nested relation filter like where: { requestedBy: { id: user.userId } }."
+  },
+  {
+    "domain": "Backend: TypeORM Relations",
+    "lesson": "@RelationId in TypeORM is a helper to expose the related ID value, but it is not a standalone persistent column that you should reference in the where clause. Query on the relation instead.",
+    "question": "Which statement is true about @RelationId in TypeORM?",
+    "correctAnswer": "It exposes related IDs for convenience but should not be used directly in where clauses."
+  },
+  {
+    "domain": "Backend: Date Handling",
+    "lesson": "RangeError: Invalid time value is thrown when you call toISOString() on a Date whose internal time is NaN. That usually means the value could not be parsed into a valid date.",
+    "question": "What caused the RangeError: Invalid time value error in this fix?",
+    "correctAnswer": "toISOString was called on a Date whose internal time was NaN from an invalid value."
+  },
+  {
+    "domain": "Backend: Date Handling",
+    "lesson": "A simple truthy check only tells you that a value exists, not that it is a valid Date. A truthy-but-invalid value will still blow up when you call toISOString().",
+    "question": "Why was the check jr.preferredWindowStart ? ... : null unsafe?",
+    "correctAnswer": "Because a truthy value might still be an invalid Date that breaks toISOString."
+  },
+  {
+    "domain": "Backend: Defensive Programming",
+    "lesson": "safeToIso() and safeToIsoDateOnly() are defensive mappers: they turn possibly-bad values into safe ISO strings or null instead of letting invalid dates crash the endpoint.",
+    "question": "What do safeToIso() and safeToIsoDateOnly() do conceptually?",
+    "correctAnswer": "They convert values to safe ISO strings, returning null when the date is invalid."
+  },
+  {
+    "domain": "Architecture: API Design & View Models",
+    "lesson": "Returning a view model instead of raw entities hides implementation details and gives the frontend a stable shape with only what it actually needs.",
+    "question": "Why is returning a simplified view model from findMyRequests a good idea?",
+    "correctAnswer": "It hides internal entity details and gives the frontend a stable, focused shape."
+  },
+  {
+    "domain": "Architecture: Authorization & Business Rules",
+    "lesson": "The ensureHomeowner(user) method in the service layer enforces that only homeowners (or admins) can see their job requests. This encodes a business rule close to the business logic.",
+    "question": "Where is the 'Homeowner-only' rule enforced in this design?",
+    "correctAnswer": "Inside the service via ensureHomeowner(user), near the core business logic."
+  },
+  {
+    "domain": "Backend: Data Quality & Telemetry",
+    "lesson": "If you keep seeing invalid date warnings, your mapping is doing its job. The next step is to clean or normalize the bad data instead of ignoring it.",
+    "question": "If logs show repeated 'Invalid date value in JobRequest' warnings, what is a good next step?",
+    "correctAnswer": "Investigate and clean legacy or corrupted date values in the database."
+  },
+  {
+    "domain": "Architecture: ORM & Data Validation",
+    "lesson": "The bigger principle: with ORMs, query on relations properly and validate data (especially dates) defensively before exposing them to clients.",
+    "question": "What is the main principle to carry forward from this fix?",
+    "correctAnswer": "Query relations correctly and validate dates defensively before returning them to clients."
+  },
+  {
+    "domain": "AI-Assisted Development",
+    "lesson": "AI tools like ChatGPT or Copilot are most effective when used to automate repetitive tasks, accelerate research, and improve UX workflows—while you still own architecture, correctness, and security decisions.",
+    "question": "What is the best way to use modern AI tools in your development workflow?",
+    "correctAnswer": "Use AI to speed up tasks and research while you own design, security, and correctness."
+  },
+  {
+    "domain": "Frontend: React & Tooling",
+    "lesson": "Your typical frontend stack centers on React 18 with TypeScript, Redux Toolkit for state, and modern bundlers like Vite/SWC for fast dev-feedback loops.",
+    "question": "Which stack best matches your typical modern frontend setup?",
+    "correctAnswer": "React 18 with TypeScript, Redux Toolkit, and a fast bundler like Vite or SWC."
+  },
+  {
+    "domain": "Local AI & IndexedDB",
+    "lesson": "For local LLM workflows, you combine a React + Vite + TypeScript front end with the Ollama API and persist chat history in IndexedDB to keep conversations local and durable.",
+    "question": "In your local LLM tooling, what role does IndexedDB play?",
+    "correctAnswer": "It keeps chat history and related data in the browser so sessions survive reloads."
+  },
+  {
+    "domain": "Backend & APIs",
+    "lesson": "You favor typed REST APIs described with OpenAPI, then generate or handcraft typed clients so the frontend and backend share a single source of truth for request and response shapes.",
+    "question": "What is a key advantage of defining REST APIs with OpenAPI and using typed clients?",
+    "correctAnswer": "Frontend and backend share one typed contract, reducing payload mismatches and runtime bugs."
+  },
+  {
+    "domain": "Cloud & DevOps",
+    "lesson": "Your cloud/DevOps tooling frequently combines Azure DevOps pipelines with Azure App Service, Azure SQL, Key Vault, and Application Insights for secure, observable deployments.",
+    "question": "Which combination best reflects the cloud and DevOps stack you commonly use?",
+    "correctAnswer": "Azure DevOps pipelines with Azure App Service, Azure SQL, Key Vault, and Application Insights."
+  }
+]
