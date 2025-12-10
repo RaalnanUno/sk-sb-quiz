@@ -1,5 +1,127 @@
 [
   {
+    "domain": "Observability: Dynatrace vs Azure Monitor",
+    "lesson": "Dynatrace is a dedicated full-stack observability and APM platform, while Azure Monitor is a cloud-native monitoring service specific to Azure.",
+    "question": "What’s a key difference between Dynatrace and Azure Monitor?",
+    "correctAnswer": "Dynatrace provides full-stack observability across multi-cloud and hybrid environments",
+    "dummyAnswers": [
+      "Azure Monitor only provides logs with no performance metrics",
+      "Dynatrace replaces Azure hosting entirely",
+      "Azure Monitor requires on-prem servers to work"
+    ]
+  },
+  {
+    "domain": "Observability: Tool Selection",
+    "lesson": "Datadog, New Relic, and AppDynamics are common Dynatrace alternatives for APM and distributed tracing.",
+    "question": "Which of the following is a common alternative to Dynatrace?",
+    "correctAnswer": "Datadog",
+    "dummyAnswers": [
+      "Veracode",
+      "MSTest",
+      "Fortify"
+    ]
+  },
+  {
+    "domain": ".NET Core Development",
+    "question": "What advantage does .NET Core provide when building modern backend services?",
+    "correctAnswer": "Cross-platform support and performance optimized for cloud and microservices",
+    "dummyAnswers": [
+      "It can only run on Windows servers for maximum security",
+      "It automatically scales up memory without configuration",
+      "It eliminates the need to write controllers for APIs"
+    ]
+  },
+  {
+    "domain": "Node.js Fundamentals",
+    "question": "Why might a team choose Node.js for building APIs?",
+    "correctAnswer": "Its event-driven, non-blocking model handles I/O efficiently",
+    "dummyAnswers": [
+      "It compiles directly to native machine code",
+      "It automatically provides strict type checking",
+      "It includes a relational database built into the runtime"
+    ]
+  },
+  {
+    "domain": "RESTful API Design",
+    "question": "What is a best practice when designing RESTful endpoints?",
+    "correctAnswer": "Use resource-based URLs and proper HTTP status codes",
+    "dummyAnswers": [
+      "Always return HTTP 200, even for failures",
+      "Include version numbers in every query parameter",
+      "Use verbs in URLs for clarity, like /UpdateCustomer"
+    ]
+  },
+  {
+    "domain": "SQL Server",
+    "question": "What is the purpose of using database indexes?",
+    "correctAnswer": "To speed up data retrieval by reducing the amount of scanned rows",
+    "dummyAnswers": [
+      "To store encrypted data only",
+      "To automatically back up tables on interval",
+      "To force every query to run in serial mode"
+    ]
+  },
+  {
+    "domain": "Azure DevOps CI/CD",
+    "question": "What does a CI pipeline primarily ensure?",
+    "correctAnswer": "Each commit is validated through automated build and test steps",
+    "dummyAnswers": [
+      "Only production deployments are logged",
+      "Developers must manually approve every unit test",
+      "All builds are executed directly on local developer machines"
+    ]
+  },
+  {
+    "domain": "Docker",
+    "question": "Why are Docker containers useful in application delivery?",
+    "correctAnswer": "They ensure consistency by packaging the app and its dependencies together",
+    "dummyAnswers": [
+      "They replace the need for cloud hosting entirely",
+      "They force apps to run faster than virtual machines",
+      "They allow deployments without any version control"
+    ]
+  },
+  {
+    "domain": "Secure Coding",
+    "question": "Why do organizations use tools like Veracode?",
+    "correctAnswer": "To detect security vulnerabilities in the code before deployment",
+    "dummyAnswers": [
+      "To automatically rewrite application code using AI",
+      "To handle user authentication and authorization",
+      "To compress all build artifacts for faster deployment"
+    ]
+  },
+  {
+    "domain": "Monitoring & Observability",
+    "question": "What does Dynatrace primarily help with?",
+    "correctAnswer": "Monitoring application performance and detecting production issues",
+    "dummyAnswers": [
+      "Replacing SQL queries with NoSQL alternatives",
+      "Enforcing deployment approvals in Azure DevOps",
+      "Encrypting stored credentials inside the app"
+    ]
+  },
+  {
+    "domain": "Architecture",
+    "question": "What is a key benefit of modular application architecture?",
+    "correctAnswer": "It allows components to be developed, deployed, and scaled independently",
+    "dummyAnswers": [
+      "It requires fewer developers to collaborate on features",
+      "It prevents network calls between services completely",
+      "It eliminates the need for API contracts"
+    ]
+  },
+  {
+    "domain": "Automation",
+    "question": "Why is automation important in DevOps?",
+    "correctAnswer": "It reduces manual errors and accelerates delivery pipelines",
+    "dummyAnswers": [
+      "It removes the need for testing entirely",
+      "It ensures deployments only happen once per month",
+      "It makes debugging impossible during builds"
+    ]
+  },
+  {
     "domain": "Svelte: Lifecycle",
     "lesson": "onMount runs only in the browser after the component is first rendered, and is the right place for client-only code like fetch or localStorage.",
     "question": "What is the primary purpose of Svelte's onMount lifecycle function?",

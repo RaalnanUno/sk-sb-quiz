@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
+
+  // ----------------------------
+  // Types
+  // ----------------------------
 
   type Question = {
     domain: string;
@@ -14,6 +18,10 @@
     text: string;
     correct: boolean;
   };
+
+  // ----------------------------
+  // Top-level state
+  // ----------------------------
 
   let loading = true;
   let error: string | null = null;
@@ -33,6 +41,14 @@
 
   let status: "idle" | "correct" | "incorrect" = "idle";
   let statusMessage = "";
+
+  // Timer ID for auto-advancing after a correct answer.
+  // We keep track of it so we can cancel if needed.
+  let autoAdvanceTimeout: number | null = null;
+
+  // ----------------------------
+  // Lifecycle: load questions
+  // ----------------------------
 
   onMount(async () => {
     try {
@@ -63,7 +79,17 @@
     }
   });
 
-  // ---------- Helpers ----------
+  // Make sure timers are cleaned up if the component goes away.
+  onDestroy(() => {
+    if (autoAdvanceTimeout !== null) {
+      clearTimeout(autoAdvanceTimeout);
+      autoAdvanceTimeout = null;
+    }
+  });
+
+  // ----------------------------
+  // Helpers
+  // ----------------------------
 
   function toggleDomain(domain: string) {
     if (selectedDomains.has(domain)) {
@@ -71,7 +97,7 @@
     } else {
       selectedDomains.add(domain);
     }
-    // Force Svelte reactivity
+    // Reassign to trigger Svelte reactivity with Set
     selectedDomains = new Set(selectedDomains);
   }
 
@@ -84,6 +110,7 @@
     return a;
   }
 
+  // Build a pool of distractors from OTHER questions' correct answers.
   function getGlobalDistractorPool(excludeIndex: number | undefined): string[] {
     if (excludeIndex === undefined) return [];
     const pool: string[] = [];
@@ -97,6 +124,10 @@
     return pool;
   }
 
+  // Build the answer options for a single question:
+  // - Always include the correct answer
+  // - Include per-question dummy answers if available
+  // - Top up with correct answers from other questions (global pool)
   function buildOptionsForQuestion(q: Question): Option[] {
     const correctText = q.correctAnswer;
     const options: Option[] = [];
@@ -133,6 +164,7 @@
     return shuffleArray(options);
   }
 
+  // Prepare the UI for the current question (options + reset status).
   function prepareCurrentQuestion() {
     const q = sessionQuestions[currentIndex];
     currentOptions = buildOptionsForQuestion(q);
@@ -140,8 +172,32 @@
     statusMessage = "";
   }
 
+  // Helper: clear any existing auto-advance timer
+  function clearAutoAdvanceTimer() {
+    if (autoAdvanceTimeout !== null) {
+      clearTimeout(autoAdvanceTimeout);
+      autoAdvanceTimeout = null;
+    }
+  }
+
+  // Helper: schedule automatic move to the next question
+  // after a short delay (e.g. 2 seconds) when the answer is correct.
+  function scheduleAutoAdvance() {
+    clearAutoAdvanceTimer();
+
+    // If this is the last question, we still call nextQuestion()
+    // which will gracefully end the session.
+    autoAdvanceTimeout = window.setTimeout(() => {
+      nextQuestion(true); // `true` = auto-advance
+    }, 1000); // "couple of seconds"
+  }
+
+  // Start (or restart) a quiz session.
   function startSession() {
     if (!allQuestions.length) return;
+
+    // If we had a pending auto-advance timer from a previous session, clear it.
+    clearAutoAdvanceTimer();
 
     // Determine which domains to use
     let activeDomains = Array.from(selectedDomains);
@@ -175,20 +231,54 @@
     prepareCurrentQuestion();
   }
 
+  // Handle an answer click:
+  // - If correct: show success, schedule auto-advance
+  // - If incorrect: show error AND re-queue the same question at the end
   function handleAnswerClick(option: Option) {
     if (status !== "idle") return;
+
+    // Clear any pending auto-advance just in case
+    clearAutoAdvanceTimer();
 
     if (option.correct) {
       status = "correct";
       statusMessage = "Correct!";
+
+      // Automatically advance to the next question after a short delay
+      scheduleAutoAdvance();
     } else {
       status = "incorrect";
       statusMessage = "Incorrect.";
+
+      // Re-queue logic for wrong answers:
+      // We take the current question and push a reference to the end
+      // of `sessionQuestions`, so the user will see it again later.
+      const currentQuestionRef = sessionQuestions[currentIndex];
+
+      // To avoid adding multiple copies *ahead* of us,
+      // we only append if there isn't already another copy
+      // later in the list.
+      const remaining = sessionQuestions.slice(currentIndex + 1);
+      const alreadyQueued = remaining.includes(currentQuestionRef);
+
+      if (!alreadyQueued) {
+        sessionQuestions = [...sessionQuestions, currentQuestionRef];
+      }
+
+      // NOTE: we do NOT auto-advance on incorrect answers.
+      // The user must click "Next Question", but the question
+      // will come back later in the queue.
     }
   }
 
-  function nextQuestion() {
+  // Move to the next question in the session.
+  // `auto` is just a flag so we know if it was called from the timer,
+  // but we don't actually need different behavior right now.
+  function nextQuestion(auto = false) {
     if (!sessionStarted) return;
+
+    // Any time we manually move, kill any pending auto-advance timer.
+    clearAutoAdvanceTimer();
 
     if (currentIndex < sessionQuestions.length - 1) {
       currentIndex += 1;
@@ -201,6 +291,8 @@
     }
   }
 
+  // Reactive statement: keep a handy reference
+  // to the "current" question for the template.
   $: currentQuestion = sessionStarted ? sessionQuestions[currentIndex] : null;
 </script>
 
@@ -219,18 +311,39 @@
   <div class="row">
     <div class="col-lg-4 mb-4">
       <div class="card">
-        <div class="card-header">
-          sk-sb-quiz
-        </div>
+        <div class="card-header">sk-sb-quiz</div>
         <div class="card-body">
           <h5 class="card-title">Session setup</h5>
           <p class="card-text small text-muted">
-            Choose one or more domains, set a minimum number of questions,
-            then start a quiz session.
+            Choose one or more domains, set a minimum number of questions, then
+            start a quiz session.
           </p>
 
           <div class="mb-3">
+            <!-- svelte-ignore a11y_label_has_associated_control -->
             <label class="form-label fw-semibold">Domains</label>
+
+            <div class="mb-3">
+              <label class="form-label" for="minQuestions">
+                Minimum questions for this session
+              </label>
+              <input
+                id="minQuestions"
+                type="number"
+                class="form-control"
+                bind:value={minQuestions}
+                min="5"
+                max="100"
+              />
+              <div class="form-text">
+                We'll take up to this many questions from your chosen domains.
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-100" on:click={startSession}>
+              {sessionStarted ? "Restart Session" : "Start Session"}
+            </button>
+
             <div class="d-flex flex-column gap-1">
               {#each domains as domain}
                 <div class="form-check">
@@ -249,27 +362,6 @@
             </div>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label" for="minQuestions">
-              Minimum questions for this session
-            </label>
-            <input
-              id="minQuestions"
-              type="number"
-              class="form-control"
-              bind:value={minQuestions}
-              min="5"
-              max="100"
-            />
-            <div class="form-text">
-              We'll take up to this many questions from your chosen domains.
-            </div>
-          </div>
-
-          <button class="btn btn-primary w-100" on:click={startSession}>
-            {sessionStarted ? "Restart Session" : "Start Session"}
-          </button>
-
           {#if sessionStarted}
             <p class="mt-3 small text-muted">
               Question {currentIndex + 1} of {sessionQuestions.length}
@@ -282,7 +374,9 @@
     <div class="col-lg-8">
       {#if sessionStarted && currentQuestion}
         <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
             <span>{currentQuestion.domain}</span>
             <span class="badge bg-secondary">
               Q{currentIndex + 1} / {sessionQuestions.length}
@@ -309,7 +403,8 @@
                   on:click={() => handleAnswerClick(opt)}
                   disabled={status !== "idle"}
                 >
-                  <strong>{String.fromCharCode(65 + i)}.</strong> {opt.text}
+                  <strong>{String.fromCharCode(65 + i)}.</strong>
+                  {opt.text}
                 </button>
               {/each}
             </div>
@@ -328,7 +423,7 @@
               <button
                 type="button"
                 class="btn btn-secondary"
-                on:click={nextQuestion}
+                on:click={() => nextQuestion(false)}
               >
                 {currentIndex < sessionQuestions.length - 1
                   ? "Next Question"
