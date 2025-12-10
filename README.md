@@ -1,7 +1,3 @@
-Absolutely — here’s a polished **README.md** tailored to your current features, stack, and future direction:
-
----
-
 # 🎯 sk-sb-quiz
 
 **A lightweight, adaptive quiz app built with SvelteKit** — designed to help developers drill the technical skills required in modern full-stack engineering interviews.
@@ -114,12 +110,3 @@ MIT — feel free to fork, learn from, or extend this project.
 
 If you're prepping for a tech interview — or just love learning — this project is for you. Feedback is welcomed and contributions are encouraged!
 
----
-
-If you'd like, I can also:
-✔ Create a **project logo**
-✔ Add **GitHub badges**
-✔ Add screenshots/demos
-✔ Provide a deployment guide (Netlify, Vercel, Cloudflare Pages)
-
-Would you like me to generate a **Quiz.json template** so contributors can easily add questions too?
